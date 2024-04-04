@@ -13,6 +13,8 @@ class ClasseController extends Controller
     public function index()
     {
         $classe = Classe::orderBy('created_at', 'DESC')->get();
+        $classe = Classe::paginate(10); // 10 éléments par page
+
  
         return view('classes.index', compact('classe'));
     }
@@ -77,5 +79,14 @@ class ClasseController extends Controller
         $classe->delete();
  
         return redirect()->route('admin/classes')->with('success', 'classe deleted successfully');
+    }
+    public function searchClasse(Request $request)
+    {
+
+    $query = $request->input('query');
+    $classe = Classe::where('Nom_Classe', 'like', "%$query%")->paginate(10); // Modifier selon vos besoins
+    return view('classes.index', compact('classe'));
+
+        
     }
 }

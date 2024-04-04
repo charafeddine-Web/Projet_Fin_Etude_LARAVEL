@@ -17,24 +17,24 @@
             <div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
               <div class="flex items-center space-x-6 lg:space-x-8">
                 <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img src="/about/pht1.jpg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img-about/pht1.jpg" alt="" class="h-full w-full object-cover object-center">
                 </div>
                 <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
 
                   <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img src="/about/pht2.jpg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img-about/pht2.jpg" alt="" class="h-full w-full object-cover object-center">
                   </div>
                   <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img src="/about/pht3.jpg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img-about/pht3.jpg" alt="" class="h-full w-full object-cover object-center">
                   </div>
                 </div>
 
                 <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                   <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img src="/about/pht4.jpg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img-about/pht4.jpg" alt="" class="h-full w-full object-cover object-center">
                   </div>
                   <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img src="/about/school2.jpg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img-about/school2.jpg" alt="" class="h-full w-full object-cover object-center">
                   </div>
                 </div>
               </div>

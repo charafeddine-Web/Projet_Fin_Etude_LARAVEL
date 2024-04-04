@@ -8,16 +8,24 @@
   <title>Page not found</title>
 </head>
 <body  class="h-full">
-  <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
-  <div class="text-center">
-    <h1 class="text-base font-semibold text-indigo-600">404</h1>
-    <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Page not found</h1>
-    <p class="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking for.</p>
-    <div class="mt-10 flex items-center justify-center gap-x-6">
-      <a href="{{ url('/') }}" class="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Go back home</a>
-      <a href="{{ route('contact') }}" class="text-sm font-semibold text-gray-900">Contact support <span aria-hidden="true">&rarr;</span></a>
+  <!-- component -->
+<!-- This is an example component -->
+<div class="h-screen w-screen bg-gray-50 flex items-center">
+    <div class="container flex flex-col md:flex-row items-center justify-between px-5 text-gray-700">
+            <div class="w-full lg:w-1/2 mx-8">
+                <div class="text-7xl text-green-500 font-dark font-extrabold mb-8"> 404</div>
+            <p class="text-2xl md:text-3xl font-light leading-normal mb-8">
+                Sorry we couldn't find the page you're looking for
+            </p>
+            
+            <a href="{{route('userprofile')}}" class="px-5 inline py-3 text-sm font-medium leading-5 shadow-2xl text-white transition-all duration-400 border border-transparent rounded-lg focus:outline-none bg-green-600 active:bg-red-600 hover:bg-red-700">back to homepage</a>
     </div>
-  </div>
+        <div class="w-full lg:flex lg:justify-end lg:w-1/2 mx-5 my-12">
+        <img src="https://user-images.githubusercontent.com/43953425/166269493-acd08ccb-4df3-4474-95c7-ad1034d3c070.svg" class="" alt="Page not found">
+        </div>
+    
+    </div>
+</div>
 </body>
 </html>
 <!--
@@ -29,5 +37,5 @@
   ```
 -->
 
-</main>
+
 

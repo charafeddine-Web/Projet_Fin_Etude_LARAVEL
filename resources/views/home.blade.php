@@ -3,7 +3,7 @@
 @section('title', 'Home')
  
 @section('contents')
-<div class="container mx-auto  px-4 ">
+<!--<div class="container mx-auto  px-4 ">
   <div class="container mx-auto  px-8">
     <div class="relative isolate overflow-hidden bg-black-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
      
@@ -18,14 +18,15 @@
       
     </div>
   </div>
-</div>
-<!--
-<main class="container mx-auto py-12 px-4  "  >
+</div>-->
+
+<main class="container mx-auto py-20 px-4  "  >
     <div class="flex flex-col items-center justify-center ">
       <div class="w-full max-w-md text-center">
-        <h1 class="text-white text-4xl font-bold mb-6">ChronoCréatif</h1>
+        <h2 class="font-bold text-4xl text-white mb-6">CHRONO<span class="bg-[#2bad3f] text-white px-2 rounded-md">CREATIF</span></h2>
+
         <p class="text-white mb-8">Read more →</p>
-        <p class="text-white font-medium mb-8">Réinventer la Productivité: Vision pour Demain</p>
+        <p class="text-white font-medium mb-8">Welcome to ChronoCréatif, your trusted partner in time management. We are committed to simplifying and optimizing the way you plan, manage and track schedules within your organization. Whether you run a small business, school, or large enterprise, our intuitive and versatile platform is designed to meet your specific needs.</p>
         <p class="text-white mb-12">
        </p>
         </p>
@@ -33,6 +34,6 @@
         <a href="{{ route('About') }}" class="inline-flex items-center px-4 py-2 ml-4 text-green-500 font-bold border border-blue-500 rounded-lg hover:bg-green-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Learn more →</a>
       </div>
     </div>
-  </main>-->
+  </main>
 @endsection
 

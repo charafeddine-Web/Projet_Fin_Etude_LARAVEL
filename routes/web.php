@@ -6,6 +6,8 @@ use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AboutController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,12 +29,10 @@ Route::get('/About us', function () {
     return view('About');
 })->name('About');
 
-
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-//Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
@@ -61,6 +61,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/admin/profile/{id}', [AdminController::class,'update'])->name('admin/profile/update');
 
     Route::get('/admin/classes', [ClasseController::class, 'index'])->name('admin/classes');
+    Route::get('/admin/classes/Search', [ClasseController::class, 'searchClasse'])->name('Search');
     Route::get('/admin/classes/create', [ClasseController::class, 'create'])->name('admin/classes/create');
     Route::post('/admin/classes/store', [ClasseController::class, 'store'])->name('admin/classes/store');
     Route::get('/admin/classes/show/{id}', [ClasseController::class, 'show'])->name('admin/classes/show');

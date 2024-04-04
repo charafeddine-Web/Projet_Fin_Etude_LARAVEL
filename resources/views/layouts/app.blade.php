@@ -14,16 +14,11 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-
-
-    
 </head>
- 
 <body class="text-gray-800 font-inter">
-   
-    <div class="">
+    <div class=" container min-h-screen max-h-auto">
     <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
-        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+        <a href="{{ route('admin/home') }}" class="flex items-center pb-4 border-b border-b-gray-800">
 
             <h2 class="font-bold text-2xl">CHRONO<span class="bg-[#f84525] text-white px-2 rounded-md">CREATIF</span></h2>
         </a>
@@ -78,11 +73,13 @@
                     <span class=" md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-600 bg-green-200 rounded-full">2 New</span>
                 </a>
             </li>
-            <li>
+            
+            <span class="text-gray-400 font-bold">AUTH PAGES</span>
+                <li>
                 <a href="{{ route('logout') }}" role="menuitem" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                     Log Out 
                 </a>
-            </li>
+               </li>
         </ul>
     </div>
     <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
@@ -184,23 +181,18 @@
         </div>
 
         <!-- Content -->
-        <div class="">
-           @yield('contents')
+        <div class=" ">
+            <div>@yield('contents')</div>
         </div>
+        
       <!-- End Content -->
     </main>
 
-
-
-
-    
-
-
-        <!--<div class="flex flex-col w-full h-screen px-4 py-8 mt-10 ">
-            <div>@yield('contents')</div>
+        <!--<div class="w-screen h-100% px-4 py-8 mt-10 ">
+           @yield('contents')
         </div>-->
         
-    </div>
+</div>
 </body>
  
 </html>

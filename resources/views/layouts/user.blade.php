@@ -31,8 +31,6 @@
                                 <a href="{{ route('emploi') }}" class="text-gray-300 hover:text-green-600 hover:underline md:decoration-1 px-3 py-2 rounded-md text-sm font-medium">Emploi</a>
                                 <a href="{{ route('About') }}" class="text-gray-300 hover:text-green-600 hover:underline md:decoration-1 px-3 py-2 rounded-md text-sm font-medium">About</a>
                                 <a href="{{ route('contact') }}" class="text-gray-300 hover:text-green-600 hover:underline md:decoration-1 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-                            
-
                             </div>
                         </div>
                     </div>
