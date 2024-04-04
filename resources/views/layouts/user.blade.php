@@ -138,6 +138,9 @@
         <main>
             <div>@yield('contents')</div>
         </main>
+        
+        <p class="text-sm text-white capitalize xl:text-center pt-20">© 2024 All rights reserved </p>
+        
     </div>
    
  
