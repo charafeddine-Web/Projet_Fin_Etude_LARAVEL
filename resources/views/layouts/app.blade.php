@@ -15,8 +15,8 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
-<body class="text-gray-800 font-inter">
-    <div class=" container min-h-screen max-h-auto">
+<body class="text-gray-800 font-inter ">
+<div class="w-full">
     <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
         <a href="{{ route('admin/home') }}" class="flex items-center pb-4 border-b border-b-gray-800">
 
@@ -41,14 +41,12 @@
                         <a href="{{ route('admin/classes') }}" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Classe</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Salle</a>
+                        <a href="{{route('admin/salles') }}" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Salle</a>
                     </li> 
                     <li class="mb-4">
                         <a href="" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Prof</a>
                     </li> 
-                    <li class="mb-4">
-                        <a href="" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Salle</a>
-                    </li> 
+                    
                 </ul>
             </li>
             <li class="mb-1 group">
@@ -81,20 +79,19 @@
                 </a>
                </li>
         </ul>
+        <p class="text-l float-center capitalize xl:text-center mt-48   font-inter">© 2024 All rights reserved </p>
+
     </div>
     <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
     <!-- end sidenav -->
-
-
-    
-    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main">
+    <main class=" md:ml-64  min-h-screen transition-all main">
         <!-- navbar -->
-        <div class="py-2 px-6 bg-[#f8f4f3] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+        <div class=" w-full py-2 px-6 bg-[#f8f4f3] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
             <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">
                 <i class="ri-menu-line"></i>
             </button>
 
-            <ul class="ml-auto flex items-center">
+            <ul class="ml-auto flex items-center  ">
                 <li class="mr-1 dropdown">
                     <button type="button" class="dropdown-toggle text-gray-400 mr-4 w-8 h-8 rounded flex items-center justify-center  hover:text-gray-600">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="hover:bg-gray-100 rounded-full" viewBox="0 0 24 24" style="fill: gray;transform: ;msFilter:;"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path></svg>                    
@@ -175,17 +172,18 @@
                                     Log Out
                                 </a>
                         </li>
+
                     </ul>
                 </li>
             </ul>
+            
         </div>
 
         <!-- Content -->
         <div class=" ">
             <div>@yield('contents')</div>
         </div>
-        <p class="text-sm  capitalize xl:text-center pt-20 text-gray-800 font-inter">© 2024 All rights reserved </p>
-
+        
       <!-- End Content -->
     </main>
 

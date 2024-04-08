@@ -6,7 +6,7 @@ use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-//use App\Http\Controllers\AboutController;
+use App\Http\Controllers\SalleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +59,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
     Route::get('/admin/profile/{id}', [AdminController::class,'edit'])->name('admin/profile/edit');
     Route::put('/admin/profile/{id}', [AdminController::class,'update'])->name('admin/profile/update');
-
+//Classes
     Route::get('/admin/classes', [ClasseController::class, 'index'])->name('admin/classes');
     Route::get('/admin/classes/Search', [ClasseController::class, 'searchClasse'])->name('Search');
     Route::get('/admin/classes/create', [ClasseController::class, 'create'])->name('admin/classes/create');
@@ -68,4 +68,21 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/classes/edit/{id}', [ClasseController::class, 'edit'])->name('admin/classes/edit');
     Route::put('/admin/classes/edit/{id}', [ClasseController::class, 'update'])->name('admin/classes/update');
     Route::delete('/admin/classes/destroy/{id}', [ClasseController::class, 'destroy'])->name('admin/classes/destroy');
+
+//salles
+
+    Route::get('/admin/salles', [SalleController::class, 'index'])->name('admin/salles');
+    Route::get('/admin/salles/Search', [SalleController::class, 'searchsalle'])->name('Search');
+    Route::get('/admin/salles/create', [SalleController::class, 'create'])->name('admin/salles/create');
+    Route::post('/admin/salles/store', [SalleController::class, 'store'])->name('admin/salles/store');
+    Route::get('/admin/salles/show/{id}', [SalleController::class, 'show'])->name('admin/salles/show');
+    Route::get('/admin/salles/edit/{id}', [SalleController::class, 'edit'])->name('admin/salles/edit');
+    Route::put('/admin/salles/edit/{id}', [SalleController::class, 'update'])->name('admin/salles/update');
+    Route::delete('/admin/salles/destroy/{id}', [SalleController::class, 'destroy'])->name('admin/salles/destroy');
+ 
+//Prof
+
+
+
+
 });
