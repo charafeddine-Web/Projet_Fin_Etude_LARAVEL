@@ -146,6 +146,7 @@
             <div class="mt-20"> @yield('contents') </div>
         </main>
         
+<<<<<<< HEAD
 
        <!-- component Footer -->
 
@@ -194,6 +195,10 @@
             2024 Ista Taza. All rights reserved.</p>
         </div>
       </div>
+=======
+        <p class="text-sm text-white capitalize xl:text-center pt-20">© 2024 All rights reserved </p>
+        
+>>>>>>> 761339dc0a7764a320b6ba15b857255d987f94ab
     </div>
   </div>
     </div>

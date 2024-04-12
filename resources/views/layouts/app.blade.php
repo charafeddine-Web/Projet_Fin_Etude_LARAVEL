@@ -202,7 +202,8 @@
         <div class=" ">
             <div>@yield('contents')</div>
         </div>
-        
+        <p class="text-sm  capitalize xl:text-center pt-20 text-gray-800 font-inter">© 2024 All rights reserved </p>
+
       <!-- End Content -->
     </main>
 

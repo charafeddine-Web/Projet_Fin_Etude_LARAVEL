@@ -6,9 +6,13 @@ use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+<<<<<<< HEAD
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\ProfesseurController;
 
+=======
+//use App\Http\Controllers\AboutController;
+>>>>>>> 761339dc0a7764a320b6ba15b857255d987f94ab
 
 /*
 |--------------------------------------------------------------------------
