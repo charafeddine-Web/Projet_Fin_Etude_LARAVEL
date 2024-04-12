@@ -4,27 +4,29 @@
  
 @section('contents')
 <div class=" ">
-    <h1 class="font-bold text-2xl ml-3">Home Salle List</h1>
+    <h1 class="font-bold text-2xl ml-3">Home Salle List</h1><hr />
     <div class="flex items-center justify-center bg-grey-lighter">
-    <label class="text-white float-right bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 cursor-pointer rounded-lg shadow-lg tracking-wide  border border-blue focus:outline-none dark:focus:ring-blue-800">
-        <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-        </svg>
-        <span class="mt-2 text-base leading-normal">Select a file CSV</span>
-        <input type='file' class="hidden" />
-    </label>
+        <form action="{{ route('SearchSalle') }}" method="GET">
+                <div class="form-group  ">
+                    <input type="text"name="keyword" id="keyword" value="{{ request('keyword') }}" class="w-full max-w-[160px] bg-white pl-2 text-base font-semibold outline-0" placeholder="" id="">
+                    <input type="submit" value="Search" class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors">
+                </div>
+        </form>
+        <div class="grid w-full max-w-xs items-center gap-1.5">
+            <input id="picture" type="file" class="flex h-10 w-full rounded-md border border-input bg-gray-400 px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">
+        </div>
+       
+        <a href="{{ route('admin/salles/create') }}" class="rounded-lg ml-10 relative w-10 h-10 cursor-pointer flex items-center border  bg-green-300 group hover:bg-green-500 ">
+            <span class="absolute right-0 h-full w-10 rounded-lg bg-green-500 flex items-center justify-center ">
+                <svg class="svg w-8 text-white"fill="none"height="24"stroke="currentColor"stroke-linecap="round" stroke-linejoin="round"stroke-width="2"viewBox="0 0 24 24"width="24"xmlns="http://www.w3.org/2000/svg">
+                <line x1="12" x2="12" y1="5" y2="19"></line>
+                <line x1="5" x2="19" y1="12" y2="12"></line>
+                </svg>
+            </span>
+        </a>
 </div>
-<a href="{{ route('admin/salles/create') }}"  class="rounded-lg float-right relative w-36 h-10 cursor-pointer flex items-center border border-green-500 bg-green-500 group hover:bg-green-500 active:bg-green-500 active:border-green-500">
-  <span class="text-gray-200 font-semibold ml-8 transform transition-all duration-300">Add Item</span>
-  <span
-    class="absolute right-0 h-full w-10 rounded-lg bg-green-500 flex items-center justify-center transform group-hover:translate-x-0 group-hover:w-full transition-all duration-300">
-    <svg class="svg w-8 text-white"fill="none"height="24"stroke="currentColor"stroke-linecap="round" stroke-linejoin="round"stroke-width="2"viewBox="0 0 24 24"width="24"xmlns="http://www.w3.org/2000/svg">
-      <line x1="12" x2="12" y1="5" y2="19"></line>
-      <line x1="5" x2="19" y1="12" y2="12"></line>
-    </svg>
-  </span>
-</a>
-<hr />
+
+
     @if(Session::has('success'))
     <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
         {{ Session::get('success') }}
@@ -44,7 +46,7 @@
         <tbody class="min-w-full overflow-x-auto py-4 lg:overflow-x-hidden">
             @if($salle->count() > 0)
             @foreach($salle as $rs)
-            <tr class=" border-b bg-[#f8f4f3]  dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-400">
+            <tr class=" border-b bg-[#f8f4f3]  dark:border-gray-700 hover:bg-gray-600 dark:hover:bg-gray-300">
                 <th scope="row" class="font-medium text-gray-900 whitespace-nowrap dark:text-black">
                     {{ $loop->iteration }}
                 </th>
@@ -75,5 +77,7 @@
             @endif
         </tbody>
     </table>
+    {{ $salle->links() }}
+
 </div>
 @endsection

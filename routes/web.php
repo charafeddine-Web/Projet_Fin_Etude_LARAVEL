@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SalleController;
+use App\Http\Controllers\ProfesseurController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +63,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/admin/profile/{id}', [AdminController::class,'update'])->name('admin/profile/update');
 //Classes
     Route::get('/admin/classes', [ClasseController::class, 'index'])->name('admin/classes');
-    Route::get('/admin/classes/Search', [ClasseController::class, 'searchClasse'])->name('Search');
+    Route::get('/admin/classes/Search', [ClasseController::class, 'searchClasse'])->name('SearchClasse');
     Route::get('/admin/classes/create', [ClasseController::class, 'create'])->name('admin/classes/create');
     Route::post('/admin/classes/store', [ClasseController::class, 'store'])->name('admin/classes/store');
     Route::get('/admin/classes/show/{id}', [ClasseController::class, 'show'])->name('admin/classes/show');
@@ -72,7 +74,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 //salles
 
     Route::get('/admin/salles', [SalleController::class, 'index'])->name('admin/salles');
-    Route::get('/admin/salles/Search', [SalleController::class, 'searchsalle'])->name('Search');
+    Route::get('/admin/salles/Search', [SalleController::class, 'searchsalle'])->name('SearchSalle');
     Route::get('/admin/salles/create', [SalleController::class, 'create'])->name('admin/salles/create');
     Route::post('/admin/salles/store', [SalleController::class, 'store'])->name('admin/salles/store');
     Route::get('/admin/salles/show/{id}', [SalleController::class, 'show'])->name('admin/salles/show');
@@ -82,6 +84,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
  
 //Prof
 
+    Route::get('/admin/professeurs', [ProfesseurController::class, 'index'])->name('admin/professeurs');
+    Route::get('/admin/professeurs/Search', [ProfesseurController::class, 'searchprofesseur'])->name('SearchProfesseur');
+    Route::get('/admin/professeurs/create', [ProfesseurController::class, 'create'])->name('admin/professeurs/create');
+    Route::post('/admin/professeurs/store', [ProfesseurController::class, 'store'])->name('admin/professeurs/store');
+    Route::get('/admin/professeurs/show/{id}', [ProfesseurController::class, 'show'])->name('admin/professeurs/show');
+    Route::get('/admin/professeurs/edit/{id}', [ProfesseurController::class, 'edit'])->name('admin/professeurs/edit');
+    Route::put('/admin/professeurs/edit/{id}', [ProfesseurController::class, 'update'])->name('admin/professeurs/update');
+    Route::delete('/admin/professeurs/destroy/{id}', [ProfesseurController::class, 'destroy'])->name('admin/professeurs/destroy');
 
 
 

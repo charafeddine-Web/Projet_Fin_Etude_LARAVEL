@@ -2,6 +2,10 @@ import './bootstrap';
 import 'https://unpkg.com/@popperjs/core@2'
 import 'https://cdn.jsdelivr.net/npm/chart.js'
 
+
+
+
+
 const fullscreenButton = document.getElementById('fullscreen-button');
                 
 fullscreenButton.addEventListener('click', toggleFullscreen);

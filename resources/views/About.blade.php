@@ -7,7 +7,7 @@
   <div class="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
     <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
       <div class="sm:max-w-lg">
-        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">ChronoCréatif </h1><br>
+      <h1 class="max-w-2xl mb-6 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white"> OF<span class="bg-[#2bad3f] text-white px-2 rounded-md">PPT</span></h1>
         <p class="mt-4 text-xl text-gray-500">ChronoCréatif is a streamlined scheduling solution tailored for efficient time management across educational and professional settings. Our intuitive platform simplifies timetable creation, ensuring seamless access and coordination. With a focus on conflict reduction and productivity enhancement, our service adapts to your unique organizational needs, delivering a harmonious blend of precision and ease.
       </div>
       <div>

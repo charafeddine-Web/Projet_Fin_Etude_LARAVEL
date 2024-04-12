@@ -13,5 +13,4 @@ class Salle extends Model
         'type_Salle',
         
     ];
-  
 }

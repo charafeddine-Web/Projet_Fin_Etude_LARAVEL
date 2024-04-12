@@ -15,7 +15,8 @@
 </head>
  <!---->
 <body class= "container  min-h-screen max-h-screen  bg-cover bg-center  " style="background-image: url('/bg.png') ">
-   <!-- <div >-->
+
+<!-- <div >-->
     <div class="  min-h-screen max-h-auto  bg-cover bg-center ">
         <nav class="">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,7 +135,7 @@
                     <a href="{{ route('login') }}" class="inline-flex items-center px-4 py-2 ml-4 text-green-500 hover:bg-green-400 hover:text-white font-bold border border-blue-500 rounded-lg  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Log in<span aria-hidden="true">&rarr;</span></a>
  
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="inline-flex items-center px-4 py-2 ml-4 text-green-500 hover:bg-green-400 hover:text-white font-bold border border-blue-500 rounded-lg  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Register<span aria-hidden="true">&rarr;</span></a>
+                   <a href="{{ route('register') }}" class="inline-flex items-center px-4 py-2 ml-4 text-green-500 hover:bg-green-400 hover:text-white font-bold border border-blue-500 rounded-lg  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Register<span aria-hidden="true">&rarr;</span></a>
                 @endif
                 @endauth
                 @endif
@@ -142,21 +143,21 @@
         </nav>
 
         <main>
-            <div>@yield('contents')</div>
+            <div class="mt-20"> @yield('contents') </div>
         </main>
         
 
        <!-- component Footer -->
 
     <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/motion-tailwind/motion-tailwind.css" rel="stylesheet">
     </head>
     <body class="">    
         <div class="flex flex-col mx-3  rounded-lg">
            <div class="w-full draggable">
     <div class="container flex flex-col mx-auto">
       <div class="flex flex-col items-center w-full my-20">
-        
+            <h1 class=" dark:text-white mb-10 text-3xl font-extrabold"> OF<span class="bg-[#2bad3f] text-white px-2 rounded-md">PPT</span></h1>
+
         <div class="flex flex-col items-center gap-6 mb-8">
           <div class="flex flex-wrap items-center justify-center gap-5 lg:gap-12 gap-y-3 lg:flex-nowrap text-dark-grey-900">
             <a href="{{ url('/') }}" class="text-white hover:text-gray-200">home</a>
@@ -189,8 +190,8 @@
           </div>
         </div>
         <div class="flex items-center">
-          <p class="text-base font-normal leading-7 text-center text-grey-700">
-            2023 Ista Taza. All rights reserved.</p>
+          <p class="text-base font-normal leading-7 text-center text-white">
+            2024 Ista Taza. All rights reserved.</p>
         </div>
       </div>
     </div>

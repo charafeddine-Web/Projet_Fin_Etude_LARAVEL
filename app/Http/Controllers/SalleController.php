@@ -13,7 +13,7 @@ class SalleController extends Controller
     public function index()
     {
         $salle = Salle::orderBy('created_at', 'DESC')->get();
-        //$classe = Salle::paginate(10);  10 éléments par page
+        $salle = Salle::paginate(10);  //10 éléments par page
         return view('salles.index', compact('salle'));
     }
 
@@ -74,7 +74,7 @@ class SalleController extends Controller
     public function searchsalle(Request $request)
     {
         $query = $request->input('query');
-        $salle = Salle::where('Nom_salle', 'like', "%$query%")->paginate(10); // Modifier selon vos besoins
+        $salle = Salle::where('Nom_Salle', 'like', "%$query%")->paginate(10); // Modifier selon vos besoins
         return view('salles.index', compact('salle'));
     }
 }
