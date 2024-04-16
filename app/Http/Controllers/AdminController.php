@@ -12,7 +12,7 @@ class AdminController extends Controller
            $user = Auth::user();
           return view('profile', ['user' => $user]);
    
-        return view('profile');
+        //return view('profile');
     }
    public function edit(string $id)
     {

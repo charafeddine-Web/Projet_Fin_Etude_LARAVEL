@@ -95,7 +95,7 @@
                 </a>-->
                </li>
         </ul>
-        <p class="text-l float-center capitalize xl:text-center mt-48   font-inter">© 2024 All rights reserved </p>
+        <p class="text-l float-center capitalize xl:text-center mt-48   font-inter">© 2024 All rights reserved--Version:{{env('APP_VERSION')}}  </p>
 
     </div>
     <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
@@ -202,7 +202,6 @@
         <div class=" ">
             <div>@yield('contents')</div>
         </div>
-        <p class="text-sm  capitalize xl:text-center pt-20 text-gray-800 font-inter">© 2024 All rights reserved </p>
 
       <!-- End Content -->
     </main>

@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
  <!---->
-<body class= "container  min-h-screen max-h-screen  bg-cover bg-center  " style="background-image: url('/bg.png') ">
+<body class= "container   bg-cover bg-center  " style="background-image: url('/wave-haikei.svg') ">
 
 <!-- <div >-->
-    <div class="  min-h-screen max-h-auto  bg-cover bg-center ">
+    <div class="">
         <nav class="">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-2xl  backdrop bg-black opacity-80">
                 <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0 text-white  ">
-               <a href="{{ url('/') }}"> <h2 class="font-bold text-2xl">OF<span class="bg-[#2bad3f] text-white px-2 rounded-md">PPT</span></h2></a>
+               <a href="{{ url('/') }}"> <h2 class="font-bold text-2xl">OF<span class="bg-[#000000] text-white px-2 rounded-md">PPT</span></h2></a>
                         
                         </div>
                     <div class="flex items-center">
@@ -146,7 +146,7 @@
             <div class="mt-20"> @yield('contents') </div>
         </main>
         
-<<<<<<< HEAD
+
 
        <!-- component Footer -->
 
@@ -191,14 +191,15 @@
           </div>
         </div>
         <div class="flex items-center">
-          <p class="text-base font-normal leading-7 text-center text-white">
-            2024 Ista Taza. All rights reserved.</p>
+          <p class="text-base font-normal leading-7 text-center text-white">2024 Ista Taza. All rights reserved--Version:{{env('APP_VERSION')}}</p>
         </div>
       </div>
-=======
-        <p class="text-sm text-white capitalize xl:text-center pt-20">© 2024 All rights reserved </p>
-        
->>>>>>> 761339dc0a7764a320b6ba15b857255d987f94ab
+    </div>
+  </footer>
+        </div>
+      </div>
+
+
     </div>
   </div>
     </div>

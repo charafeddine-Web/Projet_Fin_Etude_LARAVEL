@@ -11,8 +11,8 @@ class UserController extends Controller
     public function userprofile()
     {
         $user = Auth::user();
-        return view('profile', ['user' => $user]);
-        return view('userprofile');
+       // return view('profile', );
+        return view('userprofile',['user' => $user]);
     }
  
     public function emploi()
@@ -32,6 +32,6 @@ class UserController extends Controller
  
         $User->update($request->all());
  
-        return redirect()->route('/userprofile')->with('success', 'Profile updated successfully');
+        return redirect()->route('userprofile')->with('success', 'Profile updated successfully');
     }
 }

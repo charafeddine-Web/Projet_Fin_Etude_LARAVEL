@@ -7,11 +7,8 @@
         <div class="  grid max-w-screen-xl lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7 ml-20 mb-20">
                 <h1 class="max-w-2xl mb-6 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">
-                    Welcome to OF<span class="bg-[#2bad3f] text-white px-2 rounded-md">PPT</span></h1>
-                <p class="max-w-2xl ml-6  font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"> your
-                    trusted partner in time management. We are committed to simplifying and optimizing the way you plan,
-                    manage and track schedules within your organization. Whether you run a small business, school, or large
-                    enterprise, our intuitive and versatile platform is designed to meet your specific needs.</p>
+                Bienvenue à l'OF<span class="bg-[#53ff43] text-white px-2 rounded-md">PPT</span></h1>
+                <p class="max-w-2xl ml-6  font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"> votre partenaire de confiance en matière de gestion du temps. Nous nous engageons à simplifier et à optimiser la façon dont vous planifiez, gérez et suivez les horaires au sein de votre organisation. Que vous dirigiez une petite entreprise, une école ou une grande entreprise, notre plateforme intuitive et polyvalente est conçue pour répondre à vos besoins spécifiques.</p>
                 <!--<a href="{{ route('login') }}" class=" inline-flex items-center justify-center px-5 py-3 w-[150px] bg-black h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]">
                     
                     </a>-->

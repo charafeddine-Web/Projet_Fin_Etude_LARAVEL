@@ -6,13 +6,13 @@ use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\ProfesseurController;
 
-=======
+
 //use App\Http\Controllers\AboutController;
->>>>>>> 761339dc0a7764a320b6ba15b857255d987f94ab
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,8 +53,8 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/emploi', [UserController::class, 'emploi'])->name('emploi');
     Route::get('/userprofile', [UserController::class, 'userprofile'])->name('userprofile');
-    /*Route::get('/userprofile/{id}', [UserController::class, 'edit'])->name('userprofile/edit');
-    Route::get('/userprofile/{id}', [UserController::class, 'update'])->name('userprofile/update');*/
+    Route::get('/userprofile/{id}', [UserController::class, 'edit'])->name('userprofile/edit');
+    Route::put('/userprofile/{id}', [UserController::class, 'update'])->name('userprofile/update');
 
 });
  
@@ -100,3 +100,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
 
 });
+
+//contact
+use App\Http\Controllers\ContactController;
+Route::post('/contact/send', [ContactController::class, 'sendEmail'])->name('contact.send');
