@@ -14,11 +14,22 @@
                     <input type="submit" value="Search" class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors">
                 </div>
             </form>
-            
-            <p>Fille CSV :</p>
-            <div class="">
-                     <input id="picture" type="file"class="flex h-10 w-40 rounded-md border border-input bg-gray-400 px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">
+
+           <!-- <p>Fille CSV :</p>
+            <form action="{{ route('admin/classes/importExcel') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="">
+                    <input type="file" class="form-control w-20" id="file" name="file" accept=".xlsx, .xls"> 
+                    <button type="submit" class="btn btn-primary">Importer</button>
                 </div>
+            </form>-->
+            <form action="{{ route('admin/classes/importExcel') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+          
+                <input id="picture"id="file" name="file" accept=".xlsx, .xls" type="file"class="flex h-10 w-40 rounded-md border border-input bg-gray-400 px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">
+                <button type="submit" class="btn ">Importer</button>
+         
+            </form>
              <p>ADD Classe:</p>    
            <a href="{{ route('admin/classes/create') }}"class="rounded-lg  relative w-10 h-10 cursor-pointer flex items-center border  bg-green-300 group hover:bg-green-500 ">
                     <span class="absolute right-0 h-full w-10 rounded-lg bg-green-500 flex items-center justify-center ">
@@ -49,6 +60,7 @@
                         <th scope="col" class="px-6 py-3">Annee Formation</th>
                         <th scope="col" class="px-6 py-3">Mode Formation</th>
                         <th scope="col" class="px-6 py-3">optimisé</th>
+                        <th scope="col" class="px-6 py-3">Professeur</th>
                         <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
                 </thead>
@@ -62,17 +74,32 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $rs->Annee_Formation }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $rs->Mode_Formation }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $rs->optimisé }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-blue-600 opacity-70"><a href="{{route('\admin\classes\professeur',$rs->id)}}">Professeur</a> </td>
+                           
+                            
                                 <td class="px-6 py-4 whitespace-nowrap w-full md:w-auto">
                                     <div class="h-14 pt-5 flex justify-center md:justify-start">
-                                        <a href="{{ route('admin/classes/show', $rs->id) }}"
-                                            class="text-blue-800">Detail</a>|
-                                        <a href="{{ route('admin/classes/edit', $rs->id) }}"
-                                            class="text-green-800 pl-2">Edit</a> |
+                                        <a href="{{ route('admin/classes/show', $rs->id) }}"class="text-blue-800">
+                                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17a6 6 0 0 0 5.458-4c.09-.3.09-.6 0-.9A11.965 11.965 0 0 0 15 7a6 6 0 0 0-6 6 6 6 0 0 0 6 4zM9 17a6 6 0 0 1-5.458-4c-.09-.3-.09-.6 0-.9A11.965 11.965 0 0 1 9 7a6 6 0 0 1 6 6 6 6 0 0 1-6 4zM15 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                                        </svg>
+                                        </a>|
+                                        <a href="{{ route('admin/classes/edit', $rs->id) }}"class="text-green-800 pl-2">
+                                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 20h5l7-7-5-5-7 7v5zM11 20h5v-5l-5 5zM5 5L20 20"></path>
+                                        </svg>
+                                        </a> |
                                         <form action="{{ route('admin/classes/destroy', $rs->id) }}" method="POST"
                                             onsubmit="return confirm('Delete?')" class="text-red-800">
                                             @csrf
                                             @method('DELETE')
-                                            <button>Delete</button>
+                                            <button>
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 0 0-1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1l3 0"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 6h14v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6v14"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6v14"></path>
+                                            </svg></button>
                                         </form>
                                     </div>
                                 </td>

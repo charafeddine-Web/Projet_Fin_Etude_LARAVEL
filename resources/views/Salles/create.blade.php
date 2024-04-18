@@ -5,7 +5,14 @@
 @section('contents')
 <h1 class="font-bold text-2xl ml-3">Add Salle :</h1>
 <hr />
+@if (Session::has('errorsalle'))
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-green-100 dark:bg-gray-500 dark:text-red-800"
+                    role="alert">
+                    {{ Session::get('errorsalle') }}
+                </div>
+@endif
 <div class="border-b border-gray-500/10 pb-12">
+   
     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <form action="{{ route('admin/salles/store') }}" method="POST" enctype="multipart/form-data">
             @csrf

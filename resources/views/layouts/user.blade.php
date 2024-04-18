@@ -22,7 +22,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-2xl  backdrop bg-black opacity-80">
                 <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0 text-white  ">
-               <a href="{{ url('/') }}"> <h2 class="font-bold text-2xl">OF<span class="bg-[#000000] text-white px-2 rounded-md">PPT</span></h2></a>
+               <a href="{{ url('/') }}"> <h2 class="font-bold text-2xl">OF<span class="bg-[#ffffff] text-black px-2 rounded-md">PPT</span></h2></a>
                         
                         </div>
                     <div class="flex items-center">

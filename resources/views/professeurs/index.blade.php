@@ -6,7 +6,7 @@
     <div class="">
         <h1 class="font-bold text-2xl ml-3">Home Professeur List</h1>
         <div class="flex items-center justify-center bg-grey-lighter">
-            
+      
            <form action="{{ route('SearchProfesseur') }}" method="GET">
                 <div class="form-group  ">
                     <input type="text"name="keyword" id="keyword" value="{{ request('keyword') }}" class="w-full max-w-[160px] bg-white pl-2 text-base font-semibold outline-0" placeholder="" id="">
@@ -14,10 +14,11 @@
                 </div>
             </form>
 
-            <div class="grid w-full max-w-xs items-center gap-1.5">
-                    <input id="picture" type="file"
-                        class="flex h-10 w-full rounded-md border border-input bg-gray-400 px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">
-            </div>
+            <form action="{{ route('admin/professeurs/importExcel') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <input id="picture"id="file" name="file" accept=".xlsx, .xls" type="file"class="flex h-10 w-40 rounded-md border border-input bg-gray-400 px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">
+                <button type="submit" class="btn ">Importer</button>
+            </form>
 
             <a href="{{ route('admin/professeurs/create') }}"
                 class="rounded-lg ml-10 relative w-10 h-10 cursor-pointer flex items-center border  bg-green-300 group hover:bg-green-500 ">
@@ -57,6 +58,7 @@
                         <th scope="col" class="px-6 py-3">Grade</th>
                         <th scope="col" class="px-6 py-3">Echelle</th>
                         <th scope="col" class="px-6 py-3">Status</th>
+                        <th scope="col" class="px-6 py-3">Classes</th>
                         <th scope="col" class="px-6 py-3">Action</th>
 
 
@@ -66,7 +68,7 @@
                     @if ($professeur->count() > 0)
                         @foreach ($professeur as $rs)
                             <tr
-                                class=" border-b bg-[#f8f4f3]  dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                class=" border-b bg-[#f8f4f3]  dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-300">
                                 <th scope="row" class="font-medium text-gray-900 whitespace-nowrap dark:text-black">
                                     {{ $loop->iteration }}
                                 </th>
@@ -103,17 +105,35 @@
                                 <td>
                                     {{ $rs->status }}
                                 </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-blue-600 opacity-70">
+                                    <a href="{{route('\admin\professeur\classes',$rs->id)}}">Classes</a> 
+                                </td>
+
                                 <td class="px-6 py-4 whitespace-nowrap w-full md:w-auto">
                                     <div class="h-14 pt-5 flex justify-center md:justify-start">
                                         <a href="{{ route('admin/professeurs/show', $rs->id) }}"
-                                            class="text-blue-800">Detail</a>|
+                                            class="text-blue-800">
+                                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17a6 6 0 0 0 5.458-4c.09-.3.09-.6 0-.9A11.965 11.965 0 0 0 15 7a6 6 0 0 0-6 6 6 6 0 0 0 6 4zM9 17a6 6 0 0 1-5.458-4c-.09-.3-.09-.6 0-.9A11.965 11.965 0 0 1 9 7a6 6 0 0 1 6 6 6 6 0 0 1-6 4zM15 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                                        </svg>
+                                        </a>|
                                         <a href="{{ route('admin/professeurs/edit', $rs->id) }}"
-                                            class="text-green-800 pl-2">Edit</a> |
+                                            class="text-green-800 pl-2">
+                                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 20h5l7-7-5-5-7 7v5zM11 20h5v-5l-5 5zM5 5L20 20"></path>
+                                        </svg>
+                                        </a> |
                                         <form action="{{ route('admin/professeurs/destroy', $rs->id) }}" method="POST"
                                             onsubmit="return confirm('Delete?')" class="text-red-800">
                                             @csrf
                                             @method('DELETE')
-                                            <button>Delete</button>
+                                            <button>
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 0 0-1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1l3 0"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 6h14v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6v14"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6v14"></path>
+                                            </svg></button>
                                         </form>
                                     </div>
                             </tr>

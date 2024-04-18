@@ -11,25 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('info_modules', function (Blueprint $table) {
             $table->id();
-            $table->string('Nom_Classe');
-            $table->integer('Annee_Formation');
-            $table->string('Mode_Formation');
-            $table->boolean('optimisé');
+            $table->string('annee_formation');
+            $table->string('optimisé');
+            $table->string('durée_Pres');
+            $table->string('durée_Fad');
             $table->timestamps();
         });
     }
-   
-
-
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('info_modules');
     }
 };

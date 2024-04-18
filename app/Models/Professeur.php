@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Professeur extends Model
 {
+   
     use HasFactory;
     protected $fillable = [
         'Nom_Professeur',
@@ -21,4 +22,10 @@ class Professeur extends Model
         'echelle',
         'status',
     ];
+
+    public function classe()
+    {
+        return $this->belongsToMany(Classe::class,'former_par_défaut', 'professeur_id','classe_id');
+    }
 }
+

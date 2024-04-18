@@ -5,38 +5,49 @@
 @section('contents')
     <h1 class="font-bold text-2xl ml-3">Add Professeur :</h1><hr />
     <div class="border-b  border-gray-500/10 pb-12">
+        @if (Session::has('errorprof'))
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-green-50 dark:bg-gray-500 dark:text-red-800"
+                    role="alert">
+                    {{ Session::get('errorprof') }}
+                </div>
+        @endif
         <div class="mt-10 grid justify-items-center gap-x-6 gap-y-8 ">
             <form action="{{ route('admin/professeurs/store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Nom Professeur</label>
                     <div class="mt-2">
-                        <input type="text" name="Nom_Professeur" id="Nom_Professeur" required
+                        <input type="text" name="Nom_Professeur" id="Nom_Professeur" required value="{{ old('Nom_Professeur') }}"
                             class=" required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
-                    </div>
+                            @if ($errors->has('Nom_Professeur'))
+                                <div class="text-red-500">{{ $errors->first('Nom_Professeur') }}</div>
+                            @endif
+
+                        </div>
                 </div>
 
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Prenom Professeur</label>
                     <div class="mt-2">
-                        <input type="text" name="Prenom_Professeur" id="Prenom_Professeur" required
+                        <input type="text" name="Prenom_Professeur" id="Prenom_Professeur" required value="{{ old('Prenom_Professeur') }}"
                             class="required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
-                    </div>
+                            
+                        </div>
                 </div>
 
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Date Naissance</label>
                     <div class="mt-2">
-                        <input type="date" name="Date_Naissance" id="Date_Naissance"required
-                            class="required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
+                        <input type="date" name="Date_Naissance" id="Date_Naissance"required value="{{ old('Date_Naissance') }}"
+                        class="required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
+                      
                     </div>
                 </div>
 
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Date Recrutement</label>
                     <div class="mt-2">
-                        <input type="date" name="Date_Recrutement" id="Date_Recrutement"required
+                        <input type="date" name="Date_Recrutement" id="Date_Recrutement"required 
                             class=" required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
@@ -44,7 +55,7 @@
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Function</label>
                     <div class="mt-2">
-                        <input id="function" name="function" type="text"required
+                        <input id="function" name="function" type="text"required value="{{ old('function') }}"
                             class="required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
@@ -59,7 +70,7 @@
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Nombre d'enfants</label>
                     <div class="mt-2">
-                        <input id="Nombre_enfants" name="Nombre_enfants" type="number" required
+                        <input id="Nombre_enfants" name="Nombre_enfants" type="number"  value="{{ old('Nombre_enfants') }}"
                             class="required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
@@ -67,7 +78,7 @@
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Secteur</label>
                     <div class="mt-2">
-                        <input id="secteur" name="secteur" type="text"required
+                        <input id="secteur" name="secteur" type="text"required value="{{ old('secteur') }}"
                             class="required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
@@ -75,7 +86,7 @@
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Grade</label>
                     <div class="mt-2">
-                        <input id="grade" name="grade" type="text"required
+                        <input id="grade" name="grade" type="text"required value="{{ old('grade') }}"
                             class=" required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
@@ -83,7 +94,7 @@
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Echelle</label>
                     <div class="mt-2">
-                        <input id="echelle" name="echelle" type="number"required
+                        <input id="echelle" name="echelle" type="number"required value="{{ old('echelle') }}"
                             class="required:border-red-500 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
@@ -91,11 +102,11 @@
                 <div class="sm:col-span-4">
                     <label class="block text-sm font-medium leading-6 text-gray-900">Status</label>
                     <div class="mt-2">
-                        <input id="status" name="status" type="radio"required value="actif" class="required:border-red-500">actif<br>
-                        <input id="status" name="status" type="radio"required value="Inactif" class="required:border-red-500">Inactif
+                        <input id="status" name="status" type="radio"required value="actif"  class="required:border-red-500">actif<br>
+                        <input id="status" name="status" type="radio"required value="inactif"  class="required:border-red-500">Inactif
                     </div>
                 </div>
-                <button
+                <button 
             class="cursor-pointer  w-full justify-center mt-10  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm flex items-center fill-lime-400 bg-lime-950 hover:bg-lime-900 active:border active:border-lime-400 rounded-md duration-100 p-2"
             title="Save"
             

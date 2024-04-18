@@ -6,6 +6,12 @@
 <h1 class="font-bold text-2xl ml-3">Add Classe :</h1>
 <hr />
 <div class="border-b border-gray-900/10 pb-12">
+@if (Session::has('errorclasse'))
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-green-50 dark:bg-gray-500 dark:text-red-800"
+                role="alert">
+                {{ Session::get('errorclasse') }}
+            </div>
+@endif
     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <form action="{{ route('admin/classes/store') }}" method="POST" enctype="multipart/form-data">
             @csrf

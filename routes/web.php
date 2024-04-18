@@ -74,6 +74,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/classes/edit/{id}', [ClasseController::class, 'edit'])->name('admin/classes/edit');
     Route::put('/admin/classes/edit/{id}', [ClasseController::class, 'update'])->name('admin/classes/update');
     Route::delete('/admin/classes/destroy/{id}', [ClasseController::class, 'destroy'])->name('admin/classes/destroy');
+    Route::post('/admin/classes/importe', [ClasseController::class, 'importExcel'])->name('admin/classes/importExcel');
+   Route::get('/admin/classes/showprof/{id}', [ClasseController::class, 'showprof'])->name('\admin\classes\professeur');
+
 
 //salles
 
@@ -85,6 +88,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/salles/edit/{id}', [SalleController::class, 'edit'])->name('admin/salles/edit');
     Route::put('/admin/salles/edit/{id}', [SalleController::class, 'update'])->name('admin/salles/update');
     Route::delete('/admin/salles/destroy/{id}', [SalleController::class, 'destroy'])->name('admin/salles/destroy');
+    Route::post('/admin/salles/importe', [SalleController::class, 'importExcel'])->name('admin/salles/importExcel');
+
  
 //Prof
 
@@ -96,6 +101,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/professeurs/edit/{id}', [ProfesseurController::class, 'edit'])->name('admin/professeurs/edit');
     Route::put('/admin/professeurs/edit/{id}', [ProfesseurController::class, 'update'])->name('admin/professeurs/update');
     Route::delete('/admin/professeurs/destroy/{id}', [ProfesseurController::class, 'destroy'])->name('admin/professeurs/destroy');
+    Route::get('/admin/professeurs/showclasse/{id}', [ProfesseurController::class, 'showClasses'])->name('\admin\professeur\classes');
+    Route::post('/admin/professeurs/importe', [ProfesseurController::class, 'importExcel'])->name('admin/professeurs/importExcel');
+
 
 
 

@@ -11,25 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('emploi_classes', function (Blueprint $table) {
             $table->id();
-            $table->string('Nom_Classe');
-            $table->integer('Annee_Formation');
-            $table->string('Mode_Formation');
-            $table->boolean('optimisé');
+            $table->string('annee_Formation');
+            $table->string('date_debut');
+            $table->string('date_fin');
             $table->timestamps();
         });
     }
-   
-
-
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('emploi_classes');
     }
 };

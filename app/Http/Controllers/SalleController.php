@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Imports\SalleImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Models\Salle;
 
@@ -30,9 +31,30 @@ class SalleController extends Controller
      */
     public function store(Request $request)
     {
-        Salle::create($request->all());
-        return redirect()->route('admin/salles')->with('success','Salles added successfully');
+        // Valider les données d'entrée
+        $validatedData = $request->validate([
+            'Nom_Salle' => 'required|string|max:255',
+            'type_Salle' => 'required|string|max:255',
+        ]);
+    
+        // Vérifier s'il existe déjà une salle avec le même Nom_Salle et type_Salle
+        $existingSalle = Salle::where([
+            ['Nom_Salle', '=', $request->Nom_Salle],
+            ['type_Salle', '=', $request->type_Salle],
+        ])->first();
+    
+        if ($existingSalle) {
+            // La salle existe déjà, rediriger avec un message d'erreur
+            return redirect()->back()->with('errorsalle', 'La salle avec le même nom et type existe déjà.');
+        }
+    
+        // Créer la nouvelle salle si aucune correspondance n'est trouvée
+        Salle::create($validatedData);
+    
+        // Rediriger avec un message de succès
+        return redirect()->route('admin/salles')->with('success', 'Salle ajoutée avec succès.');
     }
+    
 
     /**
      * Display the specified resource.
@@ -76,5 +98,19 @@ class SalleController extends Controller
         $query = $request->input('query');
         $salle = Salle::where('Nom_Salle', 'like', "%$query%")->paginate(10); // Modifier selon vos besoins
         return view('salles.index', compact('salle'));
+    }
+
+    public function importExcel(Request $request)
+    {
+        // Vérifiez si un fichier a été envoyé
+        if ($request->hasFile('file')) {
+            // Importez le fichier en utilisant la salle d'importation
+            Excel::import(new SalleImport, $request->file('file'));
+            // Redirigez avec un message de succès
+            return redirect()->back()->with('success', 'Fichier importé avec succès !');
+        } else {
+            // Gérez le cas où aucun fichier n'a été envoyé
+            return redirect()->back()->with('error', 'Aucun fichier envoyé.');
+        }
     }
 }

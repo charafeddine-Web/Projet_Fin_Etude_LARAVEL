@@ -1,3 +1,5 @@
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -16,14 +18,14 @@ return new class extends Migration
             $table->id();
             $table->string('Nom_Professeur');
             $table->string('Prenom_Professeur');
-            $table->string('Date_Naissance');
-            $table->string('Date_Recrutement');
+            $table->date('Date_Naissance');
+            $table->date('Date_Recrutement');
             $table->string('function');
             $table->string('situation_familiale');
-            $table->string('Nombre_enfants');
+            $table->integer('Nombre_enfants');
             $table->string('secteur');
-            $table->string('grade');
-            $table->string('echelle');
+            $table->integer('grade');
+            $table->integer('echelle');
             $table->string('status');
             $table->timestamps();
         });
