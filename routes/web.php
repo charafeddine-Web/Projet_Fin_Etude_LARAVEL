@@ -6,10 +6,12 @@ use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ModuleController;
 
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\ProfesseurController;
 
+use App\Http\Controllers\ScheduleController;
 
 //use App\Http\Controllers\AboutController;
 
@@ -35,9 +37,16 @@ Route::get('/About us', function () {
     return view('About');
 })->name('About');
 
+
+
+
+//contact
 Route::get('/contact', function () {
-    return view('contact');
+    return view('/emails/contact');
 })->name('contact');
+use App\Http\Controllers\ContactController;
+Route::post('/contact/send', [ContactController::class, 'sendEmail'])->name('contact.send');
+
 
 
 Route::controller(AuthController::class)->group(function () {
@@ -104,11 +113,23 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/professeurs/showclasse/{id}', [ProfesseurController::class, 'showClasses'])->name('\admin\professeur\classes');
     Route::post('/admin/professeurs/importe', [ProfesseurController::class, 'importExcel'])->name('admin/professeurs/importExcel');
 
+//Module
 
+    Route::get('/admin/modules', [ModuleController::class, 'index'])->name('admin/modules');
+    Route::get('/admin/modules/Search', [ModuleController::class, 'searchmodule'])->name('Searchmodule');
+    Route::get('/admin/modules/create', [ModuleController::class, 'create'])->name('admin/modules/create');
+    Route::post('/admin/modules/store', [ModuleController::class, 'store'])->name('admin/modules/store');
+    Route::get('/admin/modules/show/{id}', [ModuleController::class, 'show'])->name('admin/modules/show');
+    Route::get('/admin/modules/edit/{id}', [ModuleController::class, 'edit'])->name('admin/modules/edit');
+    Route::put('/admin/modules/edit/{id}', [ModuleController::class, 'update'])->name('admin/modules/update');
+    Route::delete('/admin/modules/destroy/{id}', [ModuleController::class, 'destroy'])->name('admin/modules/destroy');
+    //Route::get('/admin/modules/showclasse/{id}', [ModuleController::class, 'showClasses'])->name('\admin\professeur\classes');
+    Route::post('/admin/modules/importe', [ModuleController::class, 'importExcel'])->name('admin/modules/importExcel');
 
 
 });
 
-//contact
-use App\Http\Controllers\ContactController;
-Route::post('/contact/send', [ContactController::class, 'sendEmail'])->name('contact.send');
+
+
+
+

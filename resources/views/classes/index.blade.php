@@ -15,15 +15,8 @@
                 </div>
             </form>
 
-           <!-- <p>Fille CSV :</p>
-            <form action="{{ route('admin/classes/importExcel') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="">
-                    <input type="file" class="form-control w-20" id="file" name="file" accept=".xlsx, .xls"> 
-                    <button type="submit" class="btn btn-primary">Importer</button>
-                </div>
-            </form>-->
-            <form action="{{ route('admin/classes/importExcel') }}" method="POST" enctype="multipart/form-data">
+        
+              <form action="{{ route('admin/classes/importExcel') }}" method="POST" enctype="multipart/form-data">
             @csrf
           
                 <input id="picture"id="file" name="file" accept=".xlsx, .xls" type="file"class="flex h-10 w-40 rounded-md border border-input bg-gray-400 px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">

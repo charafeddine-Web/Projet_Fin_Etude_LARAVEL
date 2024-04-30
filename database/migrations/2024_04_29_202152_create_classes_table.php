@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -11,20 +12,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('filieres', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->id();
-            $table->string('code_filiere');
-            $table->string('Nom_Filiere');
-            $table->string('annee');
+            $table->string('Nom_Classe');
+            $table->integer('Annee_Formation');
+            $table->string('Mode_Formation');
+            $table->boolean('optimisé');
             $table->timestamps();
+            
+
         });
     }
+   
+
+
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('filieres');
+        Schema::dropIfExists('classes');
     }
 };

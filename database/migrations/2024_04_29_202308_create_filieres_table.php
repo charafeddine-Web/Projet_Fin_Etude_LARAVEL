@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -11,10 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('filieres', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_Module');
-            $table->timestamps();
+            $table->string('code_filiere');
+            $table->string('Nom_Filiere');
+            $table->string('annee');
+            $table->timestamps();            
+            
+
         });
     }
 
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('filieres');
     }
 };

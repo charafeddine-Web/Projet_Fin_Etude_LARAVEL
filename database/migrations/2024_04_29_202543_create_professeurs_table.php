@@ -1,5 +1,3 @@
-
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -27,7 +25,10 @@ return new class extends Migration
             $table->integer('grade');
             $table->integer('echelle');
             $table->string('status');
-            $table->timestamps();
+            $table->timestamps();           
+            
+           
+
         });
     }
 

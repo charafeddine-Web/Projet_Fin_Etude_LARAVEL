@@ -22,10 +22,13 @@ class Professeur extends Model
         'echelle',
         'status',
     ];
-
     public function classe()
     {
         return $this->belongsToMany(Classe::class,'former_par_défaut', 'professeur_id','classe_id');
+    }
+    public function modules()
+    {
+        return $this->hasMany('App\Module');
     }
 }
 

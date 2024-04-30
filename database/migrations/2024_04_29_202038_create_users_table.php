@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -20,6 +21,8 @@ return new class extends Migration
             $table->boolean('type')->default(false);//add type boolean Users: 0=>User, 1=>Admin, 2=>Manager 
             $table->rememberToken();
             $table->timestamps();
+            
+
         });
     }
 
@@ -31,3 +34,5 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+
+

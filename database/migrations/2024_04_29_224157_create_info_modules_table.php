@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('info_modules', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('code_Module');
             $table->string('annee_formation');
             $table->string('optimisé');
             $table->string('durée_Pres');
             $table->string('durée_Fad');
             $table->timestamps();
+            $table->foreign('code_Module')->references('id')->on('modules')->onDelete('cascade');
+           
+
         });
     }
 

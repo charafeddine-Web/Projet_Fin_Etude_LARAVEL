@@ -21,7 +21,7 @@ class ContactMail extends Mailable
     {
         return $this->subject($this->data['subject'])
                     ->from($this->data['email'], $this->data['name'])
-                    ->view('contact')
+                    ->view('emails/sende')
                     ->with('data', $this->data);
     }
 }
