@@ -9,6 +9,9 @@ use App\Mail\ContactMail;
 
 class ContactController extends Controller
 {
+    Public function index(){
+        return view('/emails/contact');
+    }
     public function sendEmail(Request $request)
     {
         // Validate form data

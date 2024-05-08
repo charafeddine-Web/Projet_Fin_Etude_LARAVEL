@@ -10,7 +10,7 @@
     <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
         {{ Session::get('success') }}
     </div>
-    @endif
+@endif
   <h2 class="text-2xl font-bold text-white ">Update Your Profile</h2>
 
   <form  enctype="multipart/form-data" action="{{ route('userprofile/update', $user->id) }}" method="POST" class="flex flex-col items-center justify-center">

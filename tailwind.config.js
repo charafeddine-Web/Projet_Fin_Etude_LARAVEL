@@ -14,4 +14,5 @@ export default {
     require('@tailwindcss/typography'),
     forms,
   ],
+  
 }

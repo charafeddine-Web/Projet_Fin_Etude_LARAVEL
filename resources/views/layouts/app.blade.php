@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     @vite('resources/css/app.css')
     <!--@vite('resources/css/input.css')-->
@@ -19,16 +20,22 @@
 <body class="text-gray-800 font-inter ">
 <div class="w-full">
     <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
-        <a href="{{ route('admin/home') }}" class="flex items-center pb-4 border-b border-b-gray-800">
+        <a href="{{ route('admin/emploi') }}" class="flex items-center pb-4 border-b border-b-gray-800">
         <h1 class="max-w-2xl text-4xl font-extrabold md:text-4xl xl:text-4xl dark:text-black">OF<span class="bg-[#2bad3f] text-white px-2 rounded-md">PPT</span></h1>
         <!--<h2 class="font-bold text-2xl">CHRONO<span class="bg-[#f84525] text-white px-2 rounded-md">CREATIF</span></h2>-->
         </a>
         <ul class="mt-4">
             <span class="text-gray-400 font-bold">ADMIN</span>
             <li class="mb-1 group">
-                <a href="{{ route('admin/home') }}" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <i class="ri-home-2-line mr-3 text-lg"></i>
-                    <span class="text-sm">HOME</span>
+                <a href="{{ route('admin/Dashboard') }}" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                <i class=" ri-home-2-line mr-3 text-lg"></i>
+                <span class="text-sm">Dashboard</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="{{ route('admin/emploi') }}" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                <i class="fas fa-clock mr-3 text-lg"></i>
+                    <span class="text-sm">Emploi</span>
                 </a>
             </li>
             <li class="mb-1 group">

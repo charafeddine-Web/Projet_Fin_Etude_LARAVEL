@@ -11,6 +11,8 @@ class SalleController extends Controller
     /**
      * Display a listing of the resource.
      */
+   
+
     public function index()
     {
         $salle = Salle::orderBy('created_at', 'DESC')->get();

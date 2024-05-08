@@ -16,7 +16,8 @@ class ModuleImport implements ToModel
         return null; 
     }
         return new Module([
-            'nom_Module' => $row[0], 
+            'code_Module' => $row[0], 
+            'nom_Module' => $row[1], 
         ]);
     }
 }

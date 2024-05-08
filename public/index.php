@@ -20,6 +20,8 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
     require $maintenance;
 }
 
+ini_set('memory_limit', '512M');
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

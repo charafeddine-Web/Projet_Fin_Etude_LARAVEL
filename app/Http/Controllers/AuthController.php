@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
- 
+use Illuminate\Support\Facades\Password;
 class AuthController extends Controller
 {
  
@@ -27,7 +27,7 @@ class AuthController extends Controller
         Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed|min:8'
         ])->validate();
  
         User::create([
@@ -40,16 +40,16 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
  
-    public function login()
+    public function login(Request $request, $token=null )
     {
-        return view('auth/login');
+        return view('auth/login')->with(['token' => $token]);
     }
  
     public function loginAction(Request $request)
     {
         Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|min:8'
         ])->validate();
  
         if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
@@ -61,12 +61,12 @@ class AuthController extends Controller
         $request->session()->regenerate();
  
         if (auth()->user()->type == 'admin') {
-            return redirect()->route('admin/home');
+            return redirect()->route('admin/Dashboard');
         } else {
             return redirect()->route('home');
         }
          
-        return redirect()->route('dashboard');
+        //return redirect()->route('dashboard');
     }
  
     public function logout(Request $request)
@@ -82,4 +82,37 @@ class AuthController extends Controller
     {
         return view('userprofile');
     }
+
+
+
+
+    public function showResetForm(Request $request, $token=null)
+    {
+        return view('auth.reset',['token' => $token,'email' => $request->email]);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->save();
+            }
+        );
+
+        if ($status == Password::PASSWORD_RESET) {
+            return redirect()->route('login')->with('status', 'Password reset successfully');
+        } else {
+            return back()->withErrors(['email' => [trans($status)]])->withInput();
+        }
+    }
 }
+

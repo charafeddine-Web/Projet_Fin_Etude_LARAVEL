@@ -7,11 +7,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\HomeAdminController;
 
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\ProfesseurController;
 
-use App\Http\Controllers\ScheduleController;
 
 //use App\Http\Controllers\AboutController;
 
@@ -32,7 +32,6 @@ use App\Http\Controllers\ScheduleController;
 Route::get('/', function () {
     return view('home');
 })->name('home');
-
 Route::get('/About us', function () {
     return view('About');
 })->name('About');
@@ -40,23 +39,25 @@ Route::get('/About us', function () {
 
 
 
+
+
 //contact
-Route::get('/contact', function () {
-    return view('/emails/contact');
-})->name('contact');
 use App\Http\Controllers\ContactController;
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/send', [ContactController::class, 'sendEmail'])->name('contact.send');
 
 
-
+//Authontification
 Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
-    Route::post('register', 'registerSave')->name('register.save');
-    Route::get('login', 'login')->name('login');
-    Route::post('login', 'loginAction')->name('login.action');
- 
-    Route::get('logout', 'logout')->middleware('auth')->name('logout');
+    Route::post('/register', 'registerSave')->name('register.save');
+    Route::get('/login/{token?}', 'login')->name('login');
+    Route::post('/login', 'loginAction')->name('login.action');
+    Route::get('/logout', 'logout')->middleware('auth')->name('logout');
+    Route::get('/password/reset/{token?}', 'showResetForm')->name('password.reset');
+    Route::post('/password/update', 'resetPassword')->name('password.update');
 });
+
 //Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -69,11 +70,12 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
  
 //Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
-
+    Route::get('/admin/Dashboard', [HomeAdminController::class, 'adminHome'])->name('admin/Dashboard');
+    Route::get('/admin/Emploi', [HomeController::class, 'Emploi'])->name('admin/emploi');
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
     Route::get('/admin/profile/{id}', [AdminController::class,'edit'])->name('admin/profile/edit');
     Route::put('/admin/profile/{id}', [AdminController::class,'update'])->name('admin/profile/update');
+
 //Classes
     Route::get('/admin/classes', [ClasseController::class, 'index'])->name('admin/classes');
     Route::get('/admin/classes/Search', [ClasseController::class, 'searchClasse'])->name('SearchClasse');
@@ -123,12 +125,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/modules/edit/{id}', [ModuleController::class, 'edit'])->name('admin/modules/edit');
     Route::put('/admin/modules/edit/{id}', [ModuleController::class, 'update'])->name('admin/modules/update');
     Route::delete('/admin/modules/destroy/{id}', [ModuleController::class, 'destroy'])->name('admin/modules/destroy');
-    //Route::get('/admin/modules/showclasse/{id}', [ModuleController::class, 'showClasses'])->name('\admin\professeur\classes');
     Route::post('/admin/modules/importe', [ModuleController::class, 'importExcel'])->name('admin/modules/importExcel');
 
 
 });
-
 
 
 

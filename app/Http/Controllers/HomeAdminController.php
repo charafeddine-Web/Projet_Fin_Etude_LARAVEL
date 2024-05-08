@@ -5,10 +5,12 @@ use App\Models\Salle;
 use App\Models\Professeur;
 use App\Models\Classe;
 use App\Models\Module;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
  
-class HomeController extends Controller
+class HomeAdminController extends Controller
 {
    public function __construct()
     {
@@ -17,16 +19,18 @@ class HomeController extends Controller
  
     public function index()
     {
-        return view('home');
+        return view('Home-Admin');
     }
    
-    public function Emploi()
+    public function adminHome()
     {
         $salles = Salle::all();
         $modules = Module::all();
         $professeurs = Professeur::all();
         $classes = Classe::all();
+        $userss = User::all();
+        $users = User::paginate(8);
 
-        return view('dashboard', compact( "salles","professeurs","classes","modules"));   
+        return view('Home-admin', compact( "salles","professeurs","classes","modules","users","userss"));   
      }
 }

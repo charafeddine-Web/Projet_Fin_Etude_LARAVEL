@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +9,11 @@
     <meta name="author" content="">
     <title>Login</title>
     @vite('resources/css/app.css')
-    <!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/motion-tailwind/motion-tailwind.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>-->
 </head>
- 
+
 <body>
     <section class="bg-gray-50 min-h-screen max-h-auto  bg-cover bg-center dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -53,15 +54,17 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-start">
                                 <div class="flex items-center h-5">
-                                    <input name="remember" id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                                    <input name="remember" id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" >
                                 </div>
                                 <div class="ml-3 text-sm">
                                     <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
                                 </div>
                             </div>
-                            <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                            <a href="{{ route('password.reset', ['token' => $token]) }}" class="text-sm font-medium text-gray-400 hover:underline dark:text-gray-400">Forgot password?</a>
                         </div>
-                        <button type="submit" class="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                        <div class="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <button type="submit" class="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                        </div>
                         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                             Don’t have an account yet? <a href="{{ route('register') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
                         </p>
@@ -71,5 +74,78 @@
         </div>
     </section>
 </body>
- 
+
+<!-- <body class="bg-white rounded-lg ">
+    <div class="container flex flex-col mx-auto bg-white rounded-lg ">
+        <div class="flex justify-center w-full h-full  xl:gap-14 lg:justify-normal md:gap-5 draggable">
+            <div class="flex items-center justify-center w-full lg:p-12">
+                <div class="flex items-center xl:p-10">
+                    <form class="flex flex-col w-full h-full pb-6 text-center bg-white rounded-3xl "method="post" action="{{ route('login.action') }}">
+                        @csrf
+                        
+                        <h3 class="mb-3 text-4xl font-extrabold text-dark-grey-900">Sign In</h3>
+                        <a
+                            class="flex items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
+                            <img class="h-5 mr-2"
+                                src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
+                                alt="">
+                            Sign in with Google
+                        </a>
+                        <div class="flex items-center mb-3">
+                            <hr class="h-0 border-b border-solid border-grey-500 grow">
+                            <p class="mx-4 text-grey-600">or</p>
+                            <hr class="h-0 border-b border-solid border-grey-500 grow">
+                        </div>
+                        @if ($errors->any())
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Error!</strong>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li><span class="block sm:inline">{{ $error }}</span></li>
+                                @endforeach
+                            </ul>
+                            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <title>Close</title>
+                                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                                </svg>
+                            </span>
+                        </div>
+                        @endif
+                        <label for="email" class="mb-2 text-sm text-start text-grey-900">Email*</label>
+                        <input  type="email" name="email" id="email" placeholder="name.prenom@gmail.com"
+                            class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl" />
+                        <label for="password" class="mb-2 text-sm text-start text-grey-900">Password*</label>
+                        <input name="password" id="password"  type="password" placeholder="Enter a password"
+                            class="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl" />
+                        <div class="flex flex-row justify-between mb-8">
+                        <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input name="remember" id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" >
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
+                                </div>
+                            </div>
+                            <a href="{{ route('password.reset', ['token' => $token]) }}" class="mr-4 text-sm font-medium text-black">Forget
+                                password?</a>
+                        </div>
+                        <button
+                            class="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white bg-green-600 transition duration-300 md:w-96 rounded-2xl  focus:ring-4 ">Sign
+                            In</button>
+                        <p class="text-sm leading-relaxed text-grey-900">Not registered yet? <a
+                        href="{{ route('register') }}"  class="font-bold text-grey-700">Create an Account</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 ">
+        <div class="w-full max-w-full sm:w-3/4 mx-auto text-center">
+            <p class="text-sm text-slate-500 py-1">
+                2024 ISTA Taza. All rights reserved--Version:{{env('APP_VERSION')}} </p>
+        </div>
+    </div>
+</body> -->
+
 </html>

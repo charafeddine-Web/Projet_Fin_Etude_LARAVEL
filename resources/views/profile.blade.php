@@ -1,33 +1,31 @@
 @extends('layouts.app')
- 
+
 @section('title', 'Profile')
- 
+
 @section('contents')
 
 @if(Session::has('success'))
     <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
         {{ Session::get('success') }}
     </div>
-    @endif<hr />
-<form  enctype="multipart/form-data" action="{{ route('admin/profile/update', $user->id) }}" method="POST" class="flex flex-col items-center justify-center">
-@csrf
-@method('PUT')
-    <div>
-        <label class="label">
-            <span class="text-base label-text">Name</span>
-        </label>
-        <input name="name" type="text" value="{{ auth()->user()->name }}" class="w-full input input-bordered" />
+@endif
+
+<hr />
+
+<form enctype="multipart/form-data" action="{{ route('admin/profile/update', $user->id) }}" method="POST" class="max-w-lg mx-auto mt-6 bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    @csrf
+    @method('PUT')
+    <div class="mb-4">
+        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+        <input name="name" id="name" type="text" value="{{ auth()->user()->name }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-4 py-2">
     </div>
-    <div>
-        <label class="label">
-            <span class="text-base label-text">Email</span>
-        </label>
-        <input name="email" type="text" value="{{ auth()->user()->email }}" class="w-full input input-bordered" />
+    <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+        <input name="email" id="email" type="email" value="{{ auth()->user()->email }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-4 py-2">
     </div>
-    <div class="mt-6">
-    <button type="submit" class="flex w-50% justify-center mt-10 rounded-md bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900">Save Profile</button>
+    <div class="flex justify-center">
+        <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-sm text-black uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-200 disabled:opacity-25 transition">Save Profile</button>
     </div>
 </form>
-@endsection
 
- 
+@endsection
