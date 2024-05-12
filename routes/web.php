@@ -8,9 +8,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\HomeAdminController;
-
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\ProfesseurController;
+use App\Http\Controllers\FiliereController;
 
 
 //use App\Http\Controllers\AboutController;
@@ -67,7 +67,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::put('/userprofile/{id}', [UserController::class, 'update'])->name('userprofile/update');
 
 });
- 
+
 //Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/Dashboard', [HomeAdminController::class, 'adminHome'])->name('admin/Dashboard');
@@ -75,6 +75,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
     Route::get('/admin/profile/{id}', [AdminController::class,'edit'])->name('admin/profile/edit');
     Route::put('/admin/profile/{id}', [AdminController::class,'update'])->name('admin/profile/update');
+
 
 //Classes
     Route::get('/admin/classes', [ClasseController::class, 'index'])->name('admin/classes');
@@ -126,6 +127,21 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/admin/modules/edit/{id}', [ModuleController::class, 'update'])->name('admin/modules/update');
     Route::delete('/admin/modules/destroy/{id}', [ModuleController::class, 'destroy'])->name('admin/modules/destroy');
     Route::post('/admin/modules/importe', [ModuleController::class, 'importExcel'])->name('admin/modules/importExcel');
+
+//Filiere
+
+    Route::get('/admin/filieres', [FiliereController::class, 'index'])->name('admin/filieres');
+    Route::get('/admin/filieres/Search', [FiliereController::class, 'searchfiliere'])->name('Searchfiliere');
+    Route::get('/admin/filieres/create', [FiliereController::class, 'create'])->name('admin/filieres/create');
+    Route::post('/admin/filieres/store', [FiliereController::class, 'store'])->name('admin/filieres/store');
+    Route::get('/admin/filieres/show/{id}', [FiliereController::class, 'show'])->name('admin/filieres/show');
+    Route::get('/admin/filieres/edit/{id}', [FiliereController::class, 'edit'])->name('admin/filieres/edit');
+    Route::put('/admin/filieres/edit/{id}', [FiliereController::class, 'update'])->name('admin/filieres/update');
+    Route::delete('/admin/filieres/destroy/{id}', [FiliereController::class, 'destroy'])->name('admin/filieres/destroy');
+    Route::post('/admin/filieres/importe', [FiliereController::class, 'importExcel'])->name('admin/filieres/importExcel');
+
+
+
 
 
 });

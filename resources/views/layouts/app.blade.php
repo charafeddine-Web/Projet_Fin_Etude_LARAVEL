@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title')</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -16,11 +17,12 @@
     @vite('resources/css/app.css')
     <!--@vite('resources/css/input.css')-->
     @vite('resources/js/app.js')
+    
 </head>
 <body class="text-gray-800 font-inter ">
 <div class="w-full">
     <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
-        <a href="{{ route('admin/emploi') }}" class="flex items-center pb-4 border-b border-b-gray-800">
+        <a href="{{ route('admin/Dashboard') }}" class="flex items-center pb-4 border-b border-b-gray-800">
         <h1 class="max-w-2xl text-4xl font-extrabold md:text-4xl xl:text-4xl dark:text-black">OF<span class="bg-[#2bad3f] text-white px-2 rounded-md">PPT</span></h1>
         <!--<h2 class="font-bold text-2xl">CHRONO<span class="bg-[#f84525] text-white px-2 rounded-md">CREATIF</span></h2>-->
         </a>
@@ -57,8 +59,9 @@
                     <li class="mb-4">
                         <a href="{{route('admin/modules') }}" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Module</a>
                     </li>
-                    
-                    
+                    <li class="mb-4">
+                        <a href="{{route('admin/filieres') }}" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Filiere</a>
+                    </li> 
                 </ul>
             </li>
             <li class="mb-1 group">

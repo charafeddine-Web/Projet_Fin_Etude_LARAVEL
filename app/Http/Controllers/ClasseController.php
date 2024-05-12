@@ -136,4 +136,9 @@ class ClasseController extends Controller
         return redirect()->back()->with('error', 'Aucun fichier envoyé.');
     }
 }
+
+
+
+
+
 }

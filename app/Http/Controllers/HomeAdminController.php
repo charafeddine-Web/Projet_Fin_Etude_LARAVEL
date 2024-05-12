@@ -6,6 +6,7 @@ use App\Models\Professeur;
 use App\Models\Classe;
 use App\Models\Module;
 use App\Models\User;
+
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;

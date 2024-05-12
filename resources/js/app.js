@@ -3,8 +3,69 @@ import 'https://unpkg.com/@popperjs/core@2'
 import 'https://cdn.jsdelivr.net/npm/chart.js'
 
 
+var openFormBtns = document.querySelectorAll('.openFormBtn');
+var formModals = document.querySelectorAll('.formModal');
+var closeFormBtns = document.querySelectorAll('.closeFormBtn');
+var addBtns = document.querySelectorAll('.addBtn');
+var moduleSelects = document.querySelectorAll('.moduleSelect');
+var profSelects = document.querySelectorAll('.profSelect');
+var salleSelects = document.querySelectorAll('.salleSelect');
+var modeSelects = document.querySelectorAll('.modeSelect');
+
+// Add click event listener to open the form modal for each button
+openFormBtns.forEach(function(openFormBtn, index) {
+    openFormBtn.addEventListener('click', function() {
+        formModals[index].classList.remove('hidden');
+    });
+});
+
+// Add click event listener to close the form modal for each button
+closeFormBtns.forEach(function(closeFormBtn, index) {
+    closeFormBtn.addEventListener('click', function() {
+        formModals[index].classList.add('hidden');
+    });
+});
+
+// Add click event listener to ADD button for each form
+addBtns.forEach(function(addBtn, index) {
+    addBtn.addEventListener('click', function() {
+        addSelectedValues(index);
+    });
+});
+
+// Function to add selected values to the original button for each form
+function addSelectedValues(index) {
+    var moduleValue = moduleSelects[index].value;
+    var profValue = profSelects[index].value;
+    var salleValue = salleSelects[index].value;
+    var modeValue = modeSelects[index].value;
+
+    // Construct the new content for the original button
+    var buttonText = '';
+    if (moduleValue !== '') {
+        buttonText += moduleValue + ' <hr class="w-full"> ';
+    }
+    if (profValue !== '') {
+        buttonText += profValue+ ' <hr class="w-full"> ';
+    }
+    if (salleValue !== '') {
+        buttonText += salleValue + ' <hr class="w-full"> ';
+    }
+    if (modeValue !== '') {
+        buttonText += modeValue;
+    }
+
+    // Update the content of the original button
+    openFormBtns[index].innerHTML  = buttonText;
+    // Close the form modal
+    formModals[index].classList.add('hidden');
+}
 
 
+
+
+
+// full-screen
 
 const fullscreenButton = document.getElementById('fullscreen-button');
                 
